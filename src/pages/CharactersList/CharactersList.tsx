@@ -5,7 +5,7 @@ import './CharactersList.css';
 
 export const CharactersList = () => {
   return (
-    <section>
+    <>
       {/*
         ToDo: test navigation to character details page on click of the image title and show loader until the details page is loaded
       */}
@@ -21,6 +21,6 @@ export const CharactersList = () => {
           label='Loading characters...'
         />
       </div>
-    </section>
+    </>
   );
 };
