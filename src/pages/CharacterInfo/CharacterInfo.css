@@ -1,0 +1,11 @@
+.back_link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.back_link_label {
+  text-transform: uppercase;
+  color: #000000;
+}

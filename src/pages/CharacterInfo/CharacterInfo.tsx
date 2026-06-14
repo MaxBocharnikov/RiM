@@ -1,11 +1,18 @@
-import { useParams } from 'react-router';
+import { Link } from 'react-router';
+import { BackIcon } from '../../components';
+
+import './CharacterInfo.css';
 
 export const CharacterInfo = () => {
-  const { id } = useParams();
-
   return (
     <section>
-      <h1>Персонаж {id}</h1>
+      <Link
+        to={'/'}
+        className='back_link'
+      >
+        <BackIcon />
+        <h3 className='back_link_label'>GO BACK</h3>
+      </Link>
     </section>
   );
 };

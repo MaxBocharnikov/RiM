@@ -1,0 +1,12 @@
+.loader_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.details_link {
+  text-transform: uppercase;
+  color: #000000;
+  margin-top: 43px;
+}

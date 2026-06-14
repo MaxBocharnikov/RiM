@@ -1,1 +1,1 @@
-export { CharacterInfo } from './CharacterInfo.tsx';
+export { CharacterInfo } from './CharacterInfo';
