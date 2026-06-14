@@ -1,0 +1,20 @@
+.footer {
+  background: #fff;
+  box-shadow: -2px 0px 8px 2px #0000001a;
+  z-index: 1;
+}
+
+.footer__content {
+  width: 100%;
+  max-width: var(--content-max-size);
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author {
+  width: 100%;
+  text-align: center;
+}
