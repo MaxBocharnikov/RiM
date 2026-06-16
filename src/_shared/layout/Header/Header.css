@@ -1,0 +1,15 @@
+.header {
+  background: #fff;
+  box-shadow: -2px 0px 8px 2px #0000001a;
+  z-index: 1;
+}
+
+.header__content {
+  width: 100%;
+  max-width: var(--content-max-size);
+  margin: 0 auto;
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
