@@ -8,5 +8,7 @@
   "semi": true,
   "arrowParens": "always",
   "bracketSpacing": true,
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "importOrder": ["^react$", "", "^react", "", "<THIRD_PARTY_MODULES>", "", "^(?!.*[.]css$)[./].*$", "", "[.]css$"]
 }

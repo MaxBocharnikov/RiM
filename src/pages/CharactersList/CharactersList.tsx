@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+
 import { Loader } from '../../components';
 
 import './CharactersList.css';
