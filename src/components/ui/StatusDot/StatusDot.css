@@ -1,0 +1,18 @@
+.status_dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status_dot--alive {
+  background: #55cc44;
+}
+
+.status_dot--dead {
+  background: #d63d2e;
+}
+
+.status_dot--unknown {
+  background: #f5a623;
+}

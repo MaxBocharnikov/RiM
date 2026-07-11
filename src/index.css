@@ -25,6 +25,11 @@
 :root {
   --font-main: 'Karla', system-ui, sans-serif;
   --content-max-size: 1020px;
+
+  --color_black: #000000;
+  --color_gray: #393939;
+  --color_gray_light: #f5f5f5;
+  --color_white: #ffffff;
 }
 
 * {

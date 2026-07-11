@@ -1,0 +1,130 @@
+.select {
+  position: relative;
+  display: inline-block;
+  color: var(--color_gray);
+}
+
+.select--full-width {
+  display: block;
+  width: 100%;
+}
+
+.select__trigger {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  background: var(--color_white);
+  border: 1px solid var(--color_black);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.select__trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.select__value,
+.select__placeholder {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.select__placeholder {
+  color: var(--color_gray);
+}
+
+.select__decoration {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.select__arrow {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color_gray);
+  transition: transform 0.15s ease;
+}
+
+.select--open .select__arrow {
+  transform: rotate(180deg);
+}
+
+.select__clear {
+  padding: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color_gray);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.select__clear:hover {
+  color: var(--color_black);
+}
+
+.select__dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  margin: 0;
+  background: var(--color_white);
+  border: 1px solid var(--color_black);
+  border-radius: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.select__option {
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.select__option:hover {
+  background: var(--color_gray_light);
+}
+
+.select__option--selected {
+  background: var(--color_gray_light);
+  font-weight: 500;
+}
+
+.select--medium {
+  min-width: 240px;
+  font-size: 16px;
+}
+
+.select--medium .select__trigger {
+  padding: 18px 15px;
+  height: 55px;
+}
+
+.select--medium .select__option {
+  padding: 18px 15px;
+}
+
+.select--small {
+  min-width: 120px;
+  font-size: 14px;
+}
+
+.select--small .select__trigger {
+  padding: 2px 5px;
+  height: 21px;
+}
+
+.select--small .select__option {
+  padding: 2px 5px;
+}
