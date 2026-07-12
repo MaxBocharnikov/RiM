@@ -10,6 +10,7 @@ import './Select.css';
 interface ISelectOption<T> {
   label: string;
   value: T;
+  decorationSlot?: React.ReactNode;
 }
 
 type Props<T> = {
@@ -21,7 +22,6 @@ type Props<T> = {
   clearable?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
-  decorationSlot?: React.ReactNode;
 };
 
 export const Select = <T,>(props: Props<T>) => {
@@ -33,8 +33,7 @@ export const Select = <T,>(props: Props<T>) => {
     size = 'medium',
     clearable = false,
     disabled = false,
-    fullWidth = false,
-    decorationSlot
+    fullWidth = false
   } = props;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -107,13 +106,13 @@ export const Select = <T,>(props: Props<T>) => {
         aria-haspopup='listbox'
         aria-expanded={isOpen}
       >
+        {selectedOption?.decorationSlot && <span className='select__decoration'>{selectedOption.decorationSlot}</span>}
+
         {selectedOption ? (
           <span className='select__value'>{selectedOption.label}</span>
         ) : (
           <span className='select__placeholder'>{placeholder}</span>
         )}
-
-        {decorationSlot && <span className='select__decoration'>{decorationSlot}</span>}
 
         {showClear && (
           <span
@@ -151,7 +150,8 @@ export const Select = <T,>(props: Props<T>) => {
                 })}
                 onClick={() => handleSelect(option)}
               >
-                {option.label}
+                {option.decorationSlot && <span className='select__decoration'>{option.decorationSlot}</span>}
+                <span className='select__option-label'>{option.label}</span>
               </li>
             );
           })}

@@ -86,7 +86,14 @@
 }
 
 .select__option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   cursor: pointer;
+}
+
+.select__option-label {
+  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

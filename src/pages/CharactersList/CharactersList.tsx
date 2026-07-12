@@ -16,11 +16,11 @@ const SPECIES_OPTIONS = [
 
 type Status = 'alive' | 'dead' | 'unknown';
 
-const STATUS_OPTIONS: { label: string; value: Status }[] = [
-  { label: 'Alive', value: 'alive' },
-  { label: 'Dead', value: 'dead' },
-  { label: 'Unknown', value: 'unknown' }
-];
+const STATUS_OPTIONS = [
+  { label: 'Alive', value: 'alive', decorationSlot: <StatusDot status='alive' /> },
+  { label: 'Dead', value: 'dead', decorationSlot: <StatusDot status='dead' /> },
+  { label: 'Unknown', value: 'unknown', decorationSlot: <StatusDot status='unknown' /> }
+] satisfies { label: string; value: Status; decorationSlot: React.ReactNode }[];
 
 export const CharactersList = () => {
   const [species, setSpecies] = useState<string | null>(null);
@@ -58,7 +58,6 @@ export const CharactersList = () => {
             clearable
             value={status}
             onChange={setStatus}
-            decorationSlot={status ? <StatusDot status={status} /> : null}
             options={STATUS_OPTIONS}
           />
         </div>
