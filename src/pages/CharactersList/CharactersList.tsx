@@ -1,9 +1,31 @@
+import { useState } from 'react';
+
 import { Link } from 'react-router';
-import { Loader } from '../../components';
+
+import { Loader, Select, StatusDot } from '../../components';
 
 import './CharactersList.css';
 
+const SPECIES_OPTIONS = [
+  { label: 'Human', value: 'human' },
+  { label: 'Alien', value: 'alien' },
+  { label: 'Humanoid', value: 'humanoid' },
+  { label: 'Animal', value: 'animal' },
+  { label: 'Robot', value: 'robot' }
+];
+
+type Status = 'alive' | 'dead' | 'unknown';
+
+const STATUS_OPTIONS = [
+  { label: 'Alive', value: 'alive', decorationSlot: <StatusDot status='alive' /> },
+  { label: 'Dead', value: 'dead', decorationSlot: <StatusDot status='dead' /> },
+  { label: 'Unknown', value: 'unknown', decorationSlot: <StatusDot status='unknown' /> }
+] satisfies { label: string; value: Status; decorationSlot: React.ReactNode }[];
+
 export const CharactersList = () => {
+  const [species, setSpecies] = useState<string | null>(null);
+  const [status, setStatus] = useState<Status | null>('alive');
+
   return (
     <>
       {/*
@@ -15,6 +37,32 @@ export const CharactersList = () => {
       >
         <h3>Open Details Page</h3>
       </Link>
+
+      <section className='select_showcase'>
+        <div className='select_showcase__column'>
+          <h4 className='select_showcase__title'>Большой вариант</h4>
+          <Select
+            size='medium'
+            placeholder='Species'
+            value={species}
+            onChange={setSpecies}
+            options={SPECIES_OPTIONS}
+            clearable
+          />
+        </div>
+
+        <div className='select_showcase__column'>
+          <h4 className='select_showcase__title'>Малый вариант</h4>
+          <Select
+            size='small'
+            clearable
+            value={status}
+            onChange={setStatus}
+            options={STATUS_OPTIONS}
+          />
+        </div>
+      </section>
+
       <div className={'loader_wrapper'}>
         <Loader
           show={true}

@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router';
-import { Container, Header, Page, Footer } from './_shared';
+
+import { Container, Footer, Header, Page } from './_shared';
 
 function App() {
   return (

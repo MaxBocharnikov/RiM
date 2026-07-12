@@ -10,3 +10,20 @@
   color: #000000;
   margin-top: 43px;
 }
+
+.select_showcase {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.select_showcase__column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.select_showcase__title {
+  font-weight: 700;
+}

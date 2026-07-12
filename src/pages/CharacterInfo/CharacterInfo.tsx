@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+
 import { BackIcon } from '../../components';
 
 import './CharacterInfo.css';
