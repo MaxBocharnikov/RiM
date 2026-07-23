@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { classNames } from '../../../_shared';
+import { classNames } from '../../lib';
 import { CloseIcon } from '../CloseIcon';
 
 import './Input.scss';

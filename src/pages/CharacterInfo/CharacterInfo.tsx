@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-import { BackIcon } from '../../components';
+import { BackIcon } from '../../_shared';
 
 import './CharacterInfo.scss';
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { classNames } from '../../../_shared';
+import { classNames } from '../../lib';
 import { ArrowDownIcon } from '../ArrowDownIcon';
 import { CloseIcon } from '../CloseIcon';
 

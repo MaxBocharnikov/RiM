@@ -1,4 +1,4 @@
-import { classNames } from '../../../_shared';
+import { classNames } from '../../lib';
 
 import './StatusDot.scss';
 

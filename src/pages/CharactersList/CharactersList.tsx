@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Link } from 'react-router';
 
-import { Input, Loader, LoupeIcon, Select, StatusDot } from '../../components';
+import { Input, Loader, LoupeIcon, Select, StatusDot } from '../../_shared';
 
 import './CharactersList.scss';
 
