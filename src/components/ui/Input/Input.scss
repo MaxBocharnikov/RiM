@@ -2,8 +2,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--color_gray);
-  background: var(--color_white);
+  color: var(--color-gray);
+  background: var(--color-white);
   cursor: text;
 }
 
@@ -31,11 +31,11 @@
   outline: none;
   background: transparent;
   font: inherit;
-  color: var(--color_black);
+  color: var(--color-black);
 }
 
 .input__field::placeholder {
-  color: var(--color_gray);
+  color: var(--color-gray);
   opacity: 1;
 }
 
@@ -51,7 +51,7 @@
   padding: 2px;
   border: none;
   background: transparent;
-  color: var(--color_black);
+  color: var(--color-black);
   cursor: pointer;
   border-radius: 50%;
 }
@@ -66,7 +66,7 @@
 }
 
 .input--outline {
-  border: 1px solid var(--color_gray);
+  border: 1px solid var(--color-gray);
   border-radius: 8px;
   padding: 18px 16px;
   height: 56px;
@@ -75,9 +75,9 @@
 }
 
 .input--underline {
-  border-bottom: 1px solid var(--color_black);
+  border-bottom: 1px solid var(--color-black);
   padding: 4px 0;
   font-size: 20px;
   font-weight: 500;
-  color: var(--color_black);
+  color: var(--color-black);
 }

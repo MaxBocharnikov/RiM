@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { classNames } from '../../../_shared';
 import { CloseIcon } from '../CloseIcon';
 
-import './Input.css';
+import './Input.scss';
 
 type Props = {
   value: string;

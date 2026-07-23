@@ -7,7 +7,7 @@ import { RouterProvider } from 'react-router/dom';
 import App from './App.tsx';
 import { CharacterInfo, CharactersList } from './pages';
 
-import './index.css';
+import './index.scss';
 
 const router = createBrowserRouter([
   {

@@ -1,6 +1,6 @@
 import portalImg from '../../../assets/images/loading_image.png';
 
-import './Loader.css';
+import './Loader.scss';
 
 type Props = {
   show: boolean;

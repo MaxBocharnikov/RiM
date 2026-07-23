@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 import { Input, Loader, LoupeIcon, Select, StatusDot } from '../../components';
 
-import './CharactersList.css';
+import './CharactersList.scss';
 
 const SPECIES_OPTIONS = [
   { label: 'Human', value: 'human' },
@@ -35,15 +35,15 @@ export const CharactersList = () => {
         ToDo: test navigation to character details page on click of the image title and show loader until the details page is loaded
       */}
       <Link
-        className='details_link'
+        className='details-link'
         to={'/character/1'}
       >
         <h3>Open Details Page</h3>
       </Link>
 
-      <section className='select_showcase'>
-        <div className='select_showcase__column'>
-          <h4 className='select_showcase__title'>Большой вариант</h4>
+      <section className='select-showcase'>
+        <div className='select-showcase__column'>
+          <h4 className='select-showcase__title'>Большой вариант</h4>
           <Select
             size='medium'
             placeholder='Species'
@@ -54,8 +54,8 @@ export const CharactersList = () => {
           />
         </div>
 
-        <div className='select_showcase__column'>
-          <h4 className='select_showcase__title'>Малый вариант</h4>
+        <div className='select-showcase__column'>
+          <h4 className='select-showcase__title'>Малый вариант</h4>
           <Select
             size='small'
             clearable
@@ -66,9 +66,9 @@ export const CharactersList = () => {
         </div>
       </section>
 
-      <section className='input_showcase'>
-        <div className='input_showcase__column'>
-          <h4 className='input_showcase__title'>Underline вариант</h4>
+      <section className='input-showcase'>
+        <div className='input-showcase__column'>
+          <h4 className='input-showcase__title'>Underline вариант</h4>
           <Input
             variant='underline'
             label='Name'
@@ -78,8 +78,8 @@ export const CharactersList = () => {
           />
         </div>
 
-        <div className='input_showcase__column'>
-          <h4 className='input_showcase__title'>Outline вариант</h4>
+        <div className='input-showcase__column'>
+          <h4 className='input-showcase__title'>Outline вариант</h4>
           <Input
             variant='outline'
             label='Filter by name...'
@@ -91,7 +91,7 @@ export const CharactersList = () => {
         </div>
       </section>
 
-      <div className={'loader_wrapper'}>
+      <div className={'loader-wrapper'}>
         <Loader
           show={true}
           label='Loading characters...'

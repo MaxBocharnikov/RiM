@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Container.css';
+import './Container.scss';
 
 interface Props {
   children: React.ReactNode;

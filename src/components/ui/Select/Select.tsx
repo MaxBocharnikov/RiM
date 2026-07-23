@@ -4,7 +4,7 @@ import { classNames } from '../../../_shared';
 import { ArrowDownIcon } from '../ArrowDownIcon';
 import { CloseIcon } from '../CloseIcon';
 
-import './Select.css';
+import './Select.scss';
 
 interface ISelectOption<T> {
   label: string;
