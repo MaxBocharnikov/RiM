@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Link } from 'react-router';
 
-import { Loader, Select, StatusDot } from '../../components';
+import { Input, Loader, LoupeIcon, Select, StatusDot } from '../../components';
 
 import './CharactersList.css';
 
@@ -25,6 +25,9 @@ const STATUS_OPTIONS = [
 export const CharactersList = () => {
   const [species, setSpecies] = useState<string | null>(null);
   const [status, setStatus] = useState<Status | null>('alive');
+
+  const [formName, setFormName] = useState('Rick Sanchez');
+  const [filterName, setFilterName] = useState('');
 
   return (
     <>
@@ -59,6 +62,31 @@ export const CharactersList = () => {
             value={status}
             onChange={setStatus}
             options={STATUS_OPTIONS}
+          />
+        </div>
+      </section>
+
+      <section className='input_showcase'>
+        <div className='input_showcase__column'>
+          <h4 className='input_showcase__title'>Underline вариант</h4>
+          <Input
+            variant='underline'
+            label='Name'
+            value={formName}
+            onChange={setFormName}
+            onClear={() => setFormName('')}
+          />
+        </div>
+
+        <div className='input_showcase__column'>
+          <h4 className='input_showcase__title'>Outline вариант</h4>
+          <Input
+            variant='outline'
+            label='Filter by name...'
+            leftIcon={<LoupeIcon />}
+            value={filterName}
+            onChange={setFilterName}
+            onClear={() => setFilterName('')}
           />
         </div>
       </section>

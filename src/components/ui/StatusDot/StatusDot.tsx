@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { classNames } from '../../../_shared';
 
 import './StatusDot.css';
 

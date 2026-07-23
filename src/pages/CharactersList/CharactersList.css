@@ -27,3 +27,22 @@
 .select_showcase__title {
   font-weight: 700;
 }
+
+.input_showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 480px;
+  margin-top: 40px;
+}
+
+.input_showcase__column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.input_showcase__title {
+  font-weight: 700;
+}
