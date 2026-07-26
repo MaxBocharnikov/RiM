@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { CheckIcon, classNames, CloseIcon, EditIcon, Input, Select, StatusDot } from '../../_shared';
 
-import './CharacterCard.scss';
+import styles from './CharacterCard.module.scss';
 
 export type CharacterStatus = 'alive' | 'dead' | 'unknown';
 
@@ -52,20 +52,20 @@ export const CharacterCard = (props: Props) => {
 
   return (
     <div
-      className={classNames('character-card', {
-        'character-card--editing': isEditing
+      className={classNames(styles.character_card, {
+        [styles.character_card_editing]: isEditing
       })}
     >
       <img
-        className='character-card__image'
+        className={styles.character_card_image}
         src={character.image}
         alt={character.name}
       />
 
-      <div className='character-card__body'>
-        <div className='character-card__header'>
+      <div className={styles.character_card_body}>
+        <div className={styles.character_card_header}>
           {isEditing ? (
-            <div className='character-card__name-field'>
+            <div className={styles.character_card_name_field}>
               <Input
                 variant='underline'
                 label='Name'
@@ -75,15 +75,15 @@ export const CharacterCard = (props: Props) => {
               />
             </div>
           ) : (
-            <h3 className='character-card__name'>{character.name}</h3>
+            <h3 className={styles.character_card_name}>{character.name}</h3>
           )}
 
-          <div className='character-card__actions'>
+          <div className={styles.character_card_actions}>
             {isEditing ? (
               <>
                 <button
                   type='button'
-                  className={classNames('character-card__action', 'character-card__action--cancel')}
+                  className={classNames(styles.character_card_action, styles.character_card_action_cancel)}
                   aria-label='Cancel'
                   onClick={cancelEditing}
                 >
@@ -91,7 +91,7 @@ export const CharacterCard = (props: Props) => {
                 </button>
                 <button
                   type='button'
-                  className='character-card__action'
+                  className={styles.character_card_action}
                   aria-label='Save'
                   onClick={confirmEditing}
                 >
@@ -101,7 +101,7 @@ export const CharacterCard = (props: Props) => {
             ) : (
               <button
                 type='button'
-                className='character-card__action character-card__action--edit'
+                className={styles.character_card_action}
                 aria-label='Edit'
                 onClick={startEditing}
               >
@@ -111,20 +111,20 @@ export const CharacterCard = (props: Props) => {
           </div>
         </div>
 
-        <div className='character-card__field'>
-          <span className='character-card__label'>Gender</span>
-          <span className='character-card__value'>{character.gender}</span>
+        <div className={styles.character_card_field}>
+          <span className={styles.character_card_label}>Gender</span>
+          <span className={styles.character_card_value}>{character.gender}</span>
         </div>
 
-        <div className='character-card__field'>
-          <span className='character-card__label'>Species</span>
-          <span className='character-card__value'>{character.species}</span>
+        <div className={styles.character_card_field}>
+          <span className={styles.character_card_label}>Species</span>
+          <span className={styles.character_card_value}>{character.species}</span>
         </div>
 
-        <div className='character-card__field'>
-          <span className='character-card__label'>Location</span>
+        <div className={styles.character_card_field}>
+          <span className={styles.character_card_label}>Location</span>
           {isEditing ? (
-            <div className='character-card__control'>
+            <div className={styles.character_card_control}>
               <Input
                 variant='underline'
                 label='Location'
@@ -135,14 +135,14 @@ export const CharacterCard = (props: Props) => {
               />
             </div>
           ) : (
-            <span className='character-card__value'>{character.location}</span>
+            <span className={styles.character_card_value}>{character.location}</span>
           )}
         </div>
 
-        <div className='character-card__field'>
-          <span className='character-card__label'>Status</span>
+        <div className={styles.character_card_field}>
+          <span className={styles.character_card_label}>Status</span>
           {isEditing ? (
-            <div className='character-card__control'>
+            <div className={styles.character_card_control}>
               <Select<CharacterStatus>
                 size='small'
                 value={draft.status}
@@ -151,7 +151,7 @@ export const CharacterCard = (props: Props) => {
               />
             </div>
           ) : (
-            <span className='character-card__value character-card__value--status'>
+            <span className={classNames(styles.character_card_value, styles.character_card_value_status)}>
               {character.status.charAt(0).toUpperCase() + character.status.slice(1)}
               <StatusDot status={character.status} />
             </span>

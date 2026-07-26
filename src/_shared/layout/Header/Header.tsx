@@ -2,12 +2,12 @@ import { Link } from 'react-router';
 
 import { Logo } from '../../ui';
 
-import './Header.scss';
+import styles from './Header.module.scss';
 
 export const Header = () => {
   return (
-    <header className='header'>
-      <div className='header__content'>
+    <header className={styles.header}>
+      <div className={styles.header_content}>
         <Link to='/'>
           <Logo />
         </Link>

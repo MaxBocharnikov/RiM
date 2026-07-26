@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { classNames } from '../../lib';
 import { CloseIcon } from '../CloseIcon';
 
-import './Input.scss';
+import styles from './Input.module.scss';
 
 type Props = {
   value: string;
@@ -50,18 +50,18 @@ export const Input = (props: Props) => {
 
   return (
     <div
-      className={classNames('input', `input--${variant}`, {
-        'input--full-width': fullWidth,
-        'input--auto-width': autoWidth,
-        'input--disabled': disabled
+      className={classNames(styles.input, styles[`input_${variant}`], {
+        [styles.input_full_width]: fullWidth,
+        [styles.input_auto_width]: autoWidth,
+        [styles.input_disabled]: disabled
       })}
       onClick={handleContainerClick}
     >
-      {leftIcon && <span className='input__left-icon'>{leftIcon}</span>}
+      {leftIcon && <span className={styles.input_left_icon}>{leftIcon}</span>}
 
       <input
         ref={inputRef}
-        className='input__field'
+        className={styles.input_field}
         value={value}
         placeholder={label}
         size={autoWidth ? Math.max(value.length, label?.length ?? 0, 1) : undefined}
@@ -72,7 +72,7 @@ export const Input = (props: Props) => {
       {hasClear && (
         <button
           type='button'
-          className={classNames('input__clear', { 'input__clear--hidden': clearHidden })}
+          className={classNames(styles.input_clear, { [styles.input_clear_hidden]: clearHidden })}
           onClick={handleClear}
           disabled={disabled}
         >

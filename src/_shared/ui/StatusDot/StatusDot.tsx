@@ -1,6 +1,6 @@
 import { classNames } from '../../lib';
 
-import './StatusDot.scss';
+import styles from './StatusDot.module.scss';
 
 type Status = 'alive' | 'dead' | 'unknown';
 
@@ -8,4 +8,6 @@ type Props = {
   status: Status;
 };
 
-export const StatusDot = ({ status }: Props) => <span className={classNames('status-dot', `status-dot--${status}`)} />;
+export const StatusDot = ({ status }: Props) => (
+  <span className={classNames(styles.status_dot, styles[`status_dot_${status}`])} />
+);

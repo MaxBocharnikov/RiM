@@ -4,7 +4,7 @@ import { classNames } from '../../lib';
 import { ArrowDownIcon } from '../ArrowDownIcon';
 import { CloseIcon } from '../CloseIcon';
 
-import './Select.scss';
+import styles from './Select.module.scss';
 
 interface ISelectOption<T> {
   label: string;
@@ -90,32 +90,34 @@ export const Select = <T,>(props: Props<T>) => {
   return (
     <div
       ref={rootRef}
-      className={classNames('select', `select--${size}`, {
-        'select--open': isOpen,
-        'select--full-width': fullWidth
+      className={classNames(styles.select, styles[`select_${size}`], {
+        [styles.select_open]: isOpen,
+        [styles.select_full_width]: fullWidth
       })}
     >
       <button
         ref={triggerRef}
         type='button'
-        className='select__trigger'
+        className={styles.select_trigger}
         onClick={toggleOpen}
         onKeyDown={handleTriggerKeyDown}
         disabled={disabled}
         aria-haspopup='listbox'
         aria-expanded={isOpen}
       >
-        {selectedOption?.decorationSlot && <span className='select__decoration'>{selectedOption.decorationSlot}</span>}
+        {selectedOption?.decorationSlot && (
+          <span className={styles.select_decoration}>{selectedOption.decorationSlot}</span>
+        )}
 
         {selectedOption ? (
-          <span className='select__value'>{selectedOption.label}</span>
+          <span className={styles.select_value}>{selectedOption.label}</span>
         ) : (
-          <span className='select__placeholder'>{placeholder}</span>
+          <span className={styles.select_placeholder}>{placeholder}</span>
         )}
 
         {showClear && (
           <span
-            className='select__clear'
+            className={styles.select_clear}
             role='button'
             tabIndex={-1}
             aria-label='Clear selection'
@@ -125,7 +127,7 @@ export const Select = <T,>(props: Props<T>) => {
           </span>
         )}
         <span
-          className='select__arrow'
+          className={styles.select_arrow}
           aria-hidden='true'
         >
           <ArrowDownIcon size={size === 'small' ? 3 : 10} />
@@ -134,7 +136,7 @@ export const Select = <T,>(props: Props<T>) => {
 
       {isOpen && (
         <ul
-          className='select__dropdown'
+          className={styles.select_dropdown}
           role='listbox'
         >
           {options.map((option) => {
@@ -144,13 +146,13 @@ export const Select = <T,>(props: Props<T>) => {
                 key={option.label}
                 role='option'
                 aria-selected={isSelected}
-                className={classNames('select__option', {
-                  'select__option--selected': isSelected
+                className={classNames(styles.select_option, {
+                  [styles.select_option_selected]: isSelected
                 })}
                 onClick={() => handleSelect(option)}
               >
-                {option.decorationSlot && <span className='select__decoration'>{option.decorationSlot}</span>}
-                <span className='select__option-label'>{option.label}</span>
+                {option.decorationSlot && <span className={styles.select_decoration}>{option.decorationSlot}</span>}
+                <span className={styles.select_option_label}>{option.label}</span>
               </li>
             );
           })}

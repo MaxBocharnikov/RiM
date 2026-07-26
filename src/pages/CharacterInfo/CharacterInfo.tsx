@@ -2,17 +2,17 @@ import { Link } from 'react-router';
 
 import { BackIcon } from '../../_shared';
 
-import './CharacterInfo.scss';
+import styles from './CharacterInfo.module.scss';
 
 export const CharacterInfo = () => {
   return (
     <>
       <Link
         to={'/'}
-        className='back-link'
+        className={styles.back_link}
       >
         <BackIcon />
-        <h3 className='back-link-label'>GO BACK</h3>
+        <h3 className={styles.back_link_label}>GO BACK</h3>
       </Link>
     </>
   );

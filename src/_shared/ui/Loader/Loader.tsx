@@ -1,6 +1,7 @@
 import portalImg from '../../../assets/images/loading_image.png';
+import { classNames } from '../../lib';
 
-import './Loader.scss';
+import styles from './Loader.module.scss';
 
 type Props = {
   show: boolean;
@@ -14,14 +15,14 @@ export const Loader = (props: Props) => {
   if (!show) return null;
 
   return (
-    <div className='loader'>
+    <div className={styles.loader}>
       <img
-        className={`loader__portal loader__portal--${size}`}
+        className={classNames(styles.loader_portal, styles[`loader_portal_${size}`])}
         src={portalImg}
         alt='loader'
         aria-hidden='true'
       />
-      {label && <p className='loader__label'>{label}</p>}
+      {label && <p className={styles.loader_label}>{label}</p>}
     </div>
   );
 };
