@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 
 import { Input, Loader, LoupeIcon, Select, StatusDot } from '../../_shared';
-import { CharacterCard, type Character } from '../../widgets';
+import { CharacterCard, type ICharacter } from '../../widgets';
 
 import styles from './CharactersList.module.scss';
 
-const MOCK_CHARACTER: Character = {
+const MOCK_CHARACTER: ICharacter = {
   image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
   name: 'Rick Sanchez',
   gender: 'Male',
@@ -39,7 +39,7 @@ export const CharactersList = () => {
   const [formName, setFormName] = useState('Rick Sanchez');
   const [filterName, setFilterName] = useState('');
 
-  const [character, setCharacter] = useState<Character>(MOCK_CHARACTER);
+  const [character, setCharacter] = useState<ICharacter>(MOCK_CHARACTER);
 
   return (
     <>

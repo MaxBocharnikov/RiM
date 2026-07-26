@@ -4,33 +4,33 @@ import { CheckIcon, classNames, CloseIcon, EditIcon, Input, Select, StatusDot } 
 
 import styles from './CharacterCard.module.scss';
 
-export type CharacterStatus = 'alive' | 'dead' | 'unknown';
+export type TCharacterStatus = 'alive' | 'dead' | 'unknown';
 
-export interface Character {
+export interface ICharacter {
   image: string;
   name: string;
   gender: string;
   species: string;
   location: string;
-  status: CharacterStatus;
+  status: TCharacterStatus;
 }
 
 const STATUS_OPTIONS = [
   { label: 'Alive', value: 'alive', decorationSlot: <StatusDot status='alive' /> },
   { label: 'Dead', value: 'dead', decorationSlot: <StatusDot status='dead' /> },
   { label: 'Unknown', value: 'unknown', decorationSlot: <StatusDot status='unknown' /> }
-] satisfies { label: string; value: CharacterStatus; decorationSlot: React.ReactNode }[];
+] satisfies { label: string; value: TCharacterStatus; decorationSlot: React.ReactNode }[];
 
 type Props = {
-  character: Character;
-  onSave?: (next: Character) => void;
+  character: ICharacter;
+  onSave?: (next: ICharacter) => void;
 };
 
 export const CharacterCard = (props: Props) => {
   const { character, onSave } = props;
 
   const [isEditing, setIsEditing] = useState(false);
-  const [draft, setDraft] = useState<Character>(character);
+  const [draft, setDraft] = useState<ICharacter>(character);
 
   const startEditing = () => {
     setDraft(character);
@@ -46,7 +46,7 @@ export const CharacterCard = (props: Props) => {
     setIsEditing(false);
   };
 
-  const updateField = <K extends keyof Character>(key: K, value: Character[K]) => {
+  const updateField = <K extends keyof ICharacter>(key: K, value: ICharacter[K]) => {
     setDraft((prev) => ({ ...prev, [key]: value }));
   };
 
@@ -143,7 +143,7 @@ export const CharacterCard = (props: Props) => {
           <span className={styles.character_card_label}>Status</span>
           {isEditing ? (
             <div className={styles.character_card_control}>
-              <Select<CharacterStatus>
+              <Select<TCharacterStatus>
                 size='small'
                 value={draft.status}
                 onChange={(value) => value && updateField('status', value)}
