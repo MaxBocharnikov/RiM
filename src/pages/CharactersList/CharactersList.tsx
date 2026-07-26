@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 
 import { Input, Loader, LoupeIcon, Select, StatusDot } from '../../_shared';
-import { CharacterCard, type Character } from '../../features';
+import { CharacterCard, type Character } from '../../widgets';
 
 import './CharactersList.scss';
 

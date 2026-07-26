@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { CheckIcon, classNames, CloseIcon, EditIcon, Input, Select, StatusDot } from '../../../_shared';
+import { CheckIcon, classNames, CloseIcon, EditIcon, Input, Select, StatusDot } from '../../_shared';
 
 import './CharacterCard.scss';
 
