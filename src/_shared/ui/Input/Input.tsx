@@ -14,10 +14,21 @@ type Props = {
   leftIcon?: React.ReactNode;
   disabled?: boolean;
   fullWidth?: boolean;
+  autoWidth?: boolean;
 };
 
 export const Input = (props: Props) => {
-  const { value, onChange, onClear, label, variant = 'outline', leftIcon, disabled = false, fullWidth = false } = props;
+  const {
+    value,
+    onChange,
+    onClear,
+    label,
+    variant = 'outline',
+    leftIcon,
+    disabled = false,
+    fullWidth = false,
+    autoWidth = false
+  } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -41,6 +52,7 @@ export const Input = (props: Props) => {
     <div
       className={classNames('input', `input--${variant}`, {
         'input--full-width': fullWidth,
+        'input--auto-width': autoWidth,
         'input--disabled': disabled
       })}
       onClick={handleContainerClick}
@@ -52,6 +64,7 @@ export const Input = (props: Props) => {
         className='input__field'
         value={value}
         placeholder={label}
+        size={autoWidth ? Math.max(value.length, label?.length ?? 0, 1) : undefined}
         onChange={handleChange}
         disabled={disabled}
       />

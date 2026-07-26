@@ -3,6 +3,8 @@ export * from './BackIcon';
 export * from './ArrowDownIcon';
 export * from './CloseIcon';
 export * from './LoupeIcon';
+export * from './EditIcon';
+export * from './CheckIcon';
 export * from './Loader';
 export * from './Input';
 export * from './Select';

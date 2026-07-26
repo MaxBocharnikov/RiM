@@ -3,8 +3,18 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 
 import { Input, Loader, LoupeIcon, Select, StatusDot } from '../../_shared';
+import { CharacterCard, type Character } from '../../features';
 
 import './CharactersList.scss';
+
+const MOCK_CHARACTER: Character = {
+  image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+  name: 'Rick Sanchez',
+  gender: 'Male',
+  species: 'Human',
+  location: 'Earth',
+  status: 'alive'
+};
 
 const SPECIES_OPTIONS = [
   { label: 'Human', value: 'human' },
@@ -28,6 +38,8 @@ export const CharactersList = () => {
 
   const [formName, setFormName] = useState('Rick Sanchez');
   const [filterName, setFilterName] = useState('');
+
+  const [character, setCharacter] = useState<Character>(MOCK_CHARACTER);
 
   return (
     <>
@@ -89,6 +101,14 @@ export const CharactersList = () => {
             onClear={() => setFilterName('')}
           />
         </div>
+      </section>
+
+      <section className='card-showcase'>
+        <h4 className='card-showcase__title'>Карточка персонажа</h4>
+        <CharacterCard
+          character={character}
+          onSave={setCharacter}
+        />
       </section>
 
       <div className={'loader-wrapper'}>
