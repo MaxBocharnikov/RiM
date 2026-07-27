@@ -23,7 +23,7 @@ const STATUS_OPTIONS = [
 
 type Props = {
   character: ICharacter;
-  onSave?: (next: ICharacter) => void;
+  onSave: (next: ICharacter) => void;
 };
 
 export const CharacterCard = (props: Props) => {
@@ -42,7 +42,7 @@ export const CharacterCard = (props: Props) => {
   };
 
   const confirmEditing = () => {
-    onSave?.(draft);
+    onSave(draft);
     setIsEditing(false);
   };
 
