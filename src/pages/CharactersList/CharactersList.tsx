@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Link } from 'react-router';
 
-import { Input, Loader, LoupeIcon, Select, StatusDot } from '../../_shared';
+import { Input, Loader, LoupeIcon, Select, Show, StatusDot } from '../../_shared';
 import { CharacterCard, type ICharacter } from '../../widgets';
 
 import styles from './CharactersList.module.scss';
@@ -112,10 +112,9 @@ export const CharactersList = () => {
       </section>
 
       <div className={styles.loader_wrapper}>
-        <Loader
-          show={true}
-          label='Loading characters...'
-        />
+        <Show when={true}>
+          <Loader />
+        </Show>
       </div>
     </>
   );

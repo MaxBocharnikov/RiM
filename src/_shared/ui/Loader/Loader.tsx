@@ -4,15 +4,12 @@ import { classNames } from '../../lib';
 import styles from './Loader.module.scss';
 
 type Props = {
-  show: boolean;
   size?: 'small' | 'large';
   label?: string;
 };
 
 export const Loader = (props: Props) => {
-  const { show, label, size = 'large' } = props;
-
-  if (!show) return null;
+  const { label, size = 'large' } = props;
 
   return (
     <div className={styles.loader}>
