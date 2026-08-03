@@ -6,6 +6,12 @@ import styles from './CharacterCard.module.scss';
 
 export type TCharacterStatus = 'alive' | 'dead' | 'unknown';
 
+const STATUS_LABELS: Record<TCharacterStatus, string> = {
+  alive: 'Alive',
+  dead: 'Dead',
+  unknown: 'Unknown'
+};
+
 export interface ICharacter {
   image: string;
   name: string;
@@ -15,11 +21,11 @@ export interface ICharacter {
   status: TCharacterStatus;
 }
 
-const STATUS_OPTIONS = [
-  { label: 'Alive', value: 'alive', decorationSlot: <StatusDot status='alive' /> },
-  { label: 'Dead', value: 'dead', decorationSlot: <StatusDot status='dead' /> },
-  { label: 'Unknown', value: 'unknown', decorationSlot: <StatusDot status='unknown' /> }
-] satisfies { label: string; value: TCharacterStatus; decorationSlot: React.ReactNode }[];
+const STATUS_OPTIONS = (Object.keys(STATUS_LABELS) as TCharacterStatus[]).map((value) => ({
+  label: STATUS_LABELS[value],
+  value,
+  decorationSlot: <StatusDot status={value} />
+})) satisfies { label: string; value: TCharacterStatus; decorationSlot: React.ReactNode }[];
 
 type Props = {
   character: ICharacter;
@@ -38,6 +44,7 @@ export const CharacterCard = (props: Props) => {
   };
 
   const cancelEditing = () => {
+    setDraft(character);
     setIsEditing(false);
   };
 
@@ -50,6 +57,7 @@ export const CharacterCard = (props: Props) => {
     setDraft((prev) => ({ ...prev, [key]: value }));
   };
 
+  console.log(character);
   return (
     <div
       className={classNames(styles.character_card, {
@@ -152,7 +160,7 @@ export const CharacterCard = (props: Props) => {
             </div>
           ) : (
             <span className={classNames(styles.character_card_value, styles.character_card_value_status)}>
-              {character.status.charAt(0).toUpperCase() + character.status.slice(1)}
+              {STATUS_LABELS[character.status]}
               <StatusDot status={character.status} />
             </span>
           )}
