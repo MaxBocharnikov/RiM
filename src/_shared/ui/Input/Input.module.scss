@@ -30,6 +30,12 @@
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
+
+    svg {
+      display: block;
+      width: 24px;
+      height: auto;
+    }
   }
 
   &_field {
@@ -72,6 +78,16 @@
       visibility: hidden;
       pointer-events: none;
     }
+
+    svg {
+      display: block;
+      width: 12px;
+      height: auto;
+    }
+  }
+
+  &_underline &_clear svg {
+    width: 10px;
   }
 
   &_outline {

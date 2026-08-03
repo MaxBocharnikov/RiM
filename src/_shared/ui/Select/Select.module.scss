@@ -49,6 +49,12 @@
     flex-shrink: 0;
     color: var(--color-gray);
     transition: transform 0.15s ease;
+
+    svg {
+      display: block;
+      width: 10px;
+      height: auto;
+    }
   }
 
   &_open &_arrow {
@@ -67,6 +73,12 @@
 
     &:hover {
       color: var(--color-black);
+    }
+
+    svg {
+      display: block;
+      width: 8px;
+      height: auto;
     }
   }
 
@@ -132,6 +144,10 @@
 
     .select_option {
       padding: 2px 5px;
+    }
+
+    .select_arrow svg {
+      width: 3px;
     }
   }
 }

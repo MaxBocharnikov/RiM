@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
-import { CheckIcon, classNames, CloseIcon, EditIcon, Input, Select, StatusDot } from '../../_shared';
+import { classNames, Input, Select, StatusDot } from '../../_shared';
+import CheckIcon from '../../assets/icons/check_icon.svg?react';
+import CloseIcon from '../../assets/icons/close_icon.svg?react';
+import EditIcon from '../../assets/icons/edit_icon.svg?react';
 
 import styles from './CharacterCard.module.scss';
 
@@ -91,25 +94,29 @@ export const CharacterCard = (props: Props) => {
               <>
                 <button
                   type='button'
-                  className={classNames(styles.character_card_action, styles.character_card_action_cancel)}
+                  className={classNames(
+                    styles.character_card_action,
+                    styles.character_card_action_cancel,
+                    styles.character_card_action_close
+                  )}
                   aria-label='Cancel'
                   onClick={cancelEditing}
                 >
-                  <CloseIcon size={10} />
+                  <CloseIcon />
                 </button>
                 <button
                   type='button'
-                  className={styles.character_card_action}
+                  className={classNames(styles.character_card_action, styles.character_card_action_check)}
                   aria-label='Save'
                   onClick={confirmEditing}
                 >
-                  <CheckIcon size={24} />
+                  <CheckIcon />
                 </button>
               </>
             ) : (
               <button
                 type='button'
-                className={styles.character_card_action}
+                className={classNames(styles.character_card_action, styles.character_card_action_edit)}
                 aria-label='Edit'
                 onClick={startEditing}
               >

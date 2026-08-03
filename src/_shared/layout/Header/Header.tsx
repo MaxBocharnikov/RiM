@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-import { Logo } from '../../ui';
+import Logo from '../../../assets/icons/logo.svg?react';
 
 import styles from './Header.module.scss';
 

@@ -72,8 +72,25 @@
     color: var(--color-black);
     cursor: pointer;
 
+    svg {
+      display: block;
+      height: auto;
+    }
+
     &_cancel {
       padding: 7px;
+    }
+
+    &_close svg {
+      width: 10px;
+    }
+
+    &_check svg {
+      width: 24px;
+    }
+
+    &_edit svg {
+      width: 17px;
     }
   }
 

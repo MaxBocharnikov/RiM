@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
+import CloseIcon from '../../../assets/icons/close_icon.svg?react';
 import { classNames } from '../../lib';
-import { CloseIcon } from '../CloseIcon';
 
 import styles from './Input.module.scss';
 
@@ -76,7 +76,7 @@ export const Input = (props: Props) => {
           onClick={handleClear}
           disabled={disabled}
         >
-          <CloseIcon size={variant === 'underline' ? 10 : 12} />
+          <CloseIcon />
         </button>
       )}
     </div>
