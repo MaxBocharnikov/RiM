@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { Link } from 'react-router';
 
-import { Input, Loader, Select, StatusDot } from '../../_shared';
 import { LoupeIcon } from '../../assets';
+import { Input, Loader, Select, StatusDot } from '../../shared';
 import { CharacterCard, type ICharacter } from '../../widgets';
 
 import styles from './CharactersList.module.scss';

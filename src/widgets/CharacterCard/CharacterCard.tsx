@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { classNames, Input, Select, StatusDot } from '../../_shared';
 import { CheckIcon, CloseIcon, EditIcon } from '../../assets';
+import { classNames, Input, Select, StatusDot } from '../../shared';
 
 import styles from './CharacterCard.module.scss';
 
