@@ -22,11 +22,11 @@ export interface ICharacter {
   status: TCharacterStatus;
 }
 
-const STATUS_OPTIONS = (Object.keys(STATUS_LABELS) as TCharacterStatus[]).map((value) => ({
-  label: STATUS_LABELS[value],
-  value,
-  decorationSlot: <StatusDot status={value} />
-})) satisfies { label: string; value: TCharacterStatus; decorationSlot: React.ReactNode }[];
+const STATUS_OPTIONS = [
+  { label: STATUS_LABELS.alive, value: 'alive' as const, decorationSlot: <StatusDot status='alive' /> },
+  { label: STATUS_LABELS.dead, value: 'dead' as const, decorationSlot: <StatusDot status='dead' /> },
+  { label: STATUS_LABELS.unknown, value: 'unknown' as const, decorationSlot: <StatusDot status='unknown' /> }
+];
 
 type Props = {
   character: ICharacter;
@@ -58,7 +58,6 @@ export const CharacterCard = (props: Props) => {
     setDraft((prev) => ({ ...prev, [key]: value }));
   };
 
-  console.log(character);
   return (
     <div
       className={classNames(styles.character_card, {
@@ -162,7 +161,7 @@ export const CharacterCard = (props: Props) => {
           <span className={styles.character_card_label}>Status</span>
           {isEditing ? (
             <div className={styles.character_card_control}>
-              <Select<TCharacterStatus>
+              <Select
                 size='small'
                 value={draft.status}
                 onChange={(value) => value && updateField('status', value)}
