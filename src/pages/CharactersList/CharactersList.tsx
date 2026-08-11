@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 
 import { LoupeIcon } from '../../assets';
-import { Input, Loader, Select, StatusDot } from '../../shared';
-import { CharacterCard, type ICharacter } from '../../widgets';
+import { Input, Loader, Select } from '../../shared';
+import { CharacterCard, CharacterStatusDot, type ICharacter, type TCharacterStatus } from '../../widgets';
 
 import styles from './CharactersList.module.scss';
 
@@ -14,7 +14,7 @@ const MOCK_CHARACTER: ICharacter = {
   gender: 'Male',
   species: 'Human',
   location: 'Earth',
-  status: 'alive'
+  status: 'Alive'
 };
 
 const SPECIES_OPTIONS = [
@@ -25,17 +25,15 @@ const SPECIES_OPTIONS = [
   { label: 'Robot', value: 'robot' }
 ];
 
-type Status = 'alive' | 'dead' | 'unknown';
-
 const STATUS_OPTIONS = [
-  { label: 'Alive', value: 'alive', decorationSlot: <StatusDot status='alive' /> },
-  { label: 'Dead', value: 'dead', decorationSlot: <StatusDot status='dead' /> },
-  { label: 'Unknown', value: 'unknown', decorationSlot: <StatusDot status='unknown' /> }
-] satisfies { label: string; value: Status; decorationSlot: React.ReactNode }[];
+  { label: 'Alive', value: 'Alive' as const, decorationSlot: <CharacterStatusDot status='Alive' /> },
+  { label: 'Dead', value: 'Dead' as const, decorationSlot: <CharacterStatusDot status='Dead' /> },
+  { label: 'Unknown', value: 'unknown' as const, decorationSlot: <CharacterStatusDot status='unknown' /> }
+];
 
 export const CharactersList = () => {
   const [species, setSpecies] = useState<string | null>(null);
-  const [status, setStatus] = useState<Status | null>('alive');
+  const [status, setStatus] = useState<TCharacterStatus | null>('Alive');
 
   const [formName, setFormName] = useState('Rick Sanchez');
   const [filterName, setFilterName] = useState('');

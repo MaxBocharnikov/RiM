@@ -1,31 +1,30 @@
 import { useState } from 'react';
 
 import { CheckIcon, CloseIcon, EditIcon } from '../../assets';
-import { classNames, Input, Select, StatusDot } from '../../shared';
+import { classNames, Input, Select } from '../../shared';
+import { CharacterStatusDot } from './CharacterStatusDot';
+import type { ICharacter, TCharacterStatus } from './types';
 
 import styles from './CharacterCard.module.scss';
 
-export type TCharacterStatus = 'alive' | 'dead' | 'unknown';
-
 const STATUS_LABELS: Record<TCharacterStatus, string> = {
-  alive: 'Alive',
-  dead: 'Dead',
+  Alive: 'Alive',
+  Dead: 'Dead',
   unknown: 'Unknown'
 };
 
-export interface ICharacter {
-  image: string;
-  name: string;
-  gender: string;
-  species: string;
-  location: string;
-  status: TCharacterStatus;
-}
-
 const STATUS_OPTIONS = [
-  { label: STATUS_LABELS.alive, value: 'alive' as const, decorationSlot: <StatusDot status='alive' /> },
-  { label: STATUS_LABELS.dead, value: 'dead' as const, decorationSlot: <StatusDot status='dead' /> },
-  { label: STATUS_LABELS.unknown, value: 'unknown' as const, decorationSlot: <StatusDot status='unknown' /> }
+  { label: STATUS_LABELS.Alive, value: 'Alive' as const, decorationSlot: <CharacterStatusDot status='Alive' /> },
+  {
+    label: STATUS_LABELS.Dead,
+    value: 'Dead' as const,
+    decorationSlot: <CharacterStatusDot status='Dead' />
+  },
+  {
+    label: STATUS_LABELS.unknown,
+    value: 'unknown' as const,
+    decorationSlot: <CharacterStatusDot status='unknown' />
+  }
 ];
 
 type Props = {
@@ -171,7 +170,7 @@ export const CharacterCard = (props: Props) => {
           ) : (
             <span className={classNames(styles.character_card_value, styles.character_card_value_status)}>
               {STATUS_LABELS[character.status]}
-              <StatusDot status={character.status} />
+              <CharacterStatusDot status={character.status} />
             </span>
           )}
         </div>
