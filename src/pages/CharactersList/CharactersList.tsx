@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Link } from 'react-router';
 
-import { Input, Loader, Select, Show, StatusDot } from '../../_shared';
+import { Input, Loader, Select, StatusDot } from '../../_shared';
 import { LoupeIcon } from '../../assets';
 import { CharacterCard, type ICharacter } from '../../widgets';
 
@@ -113,9 +113,7 @@ export const CharactersList = () => {
       </section>
 
       <div className={styles.loader_wrapper}>
-        <Show when={true}>
-          <Loader />
-        </Show>
+        <Loader />
       </div>
     </>
   );
