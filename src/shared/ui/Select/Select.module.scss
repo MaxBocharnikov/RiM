@@ -43,21 +43,15 @@
     flex-shrink: 0;
   }
 
-  &_arrow {
-    display: inline-flex;
-    align-items: center;
-    flex-shrink: 0;
-    color: var(--color-gray);
-    transition: transform 0.15s ease;
-  }
-
   &_arrow_icon {
     display: block;
     width: 10px;
     height: auto;
+    color: var(--color-gray);
+    transition: transform 0.25s ease;
   }
 
-  &_open &_arrow {
+  &_open &_arrow_icon {
     transform: rotate(180deg);
   }
 
