@@ -49,12 +49,12 @@
     flex-shrink: 0;
     color: var(--color-gray);
     transition: transform 0.15s ease;
+  }
 
-    svg {
-      display: block;
-      width: 10px;
-      height: auto;
-    }
+  &_arrow_icon {
+    display: block;
+    width: 10px;
+    height: auto;
   }
 
   &_open &_arrow {
@@ -74,12 +74,12 @@
     &:hover {
       color: var(--color-black);
     }
+  }
 
-    svg {
-      display: block;
-      width: 8px;
-      height: auto;
-    }
+  &_clear_icon {
+    display: block;
+    width: 8px;
+    height: auto;
   }
 
   &_dropdown {
@@ -146,7 +146,7 @@
       padding: 2px 5px;
     }
 
-    .select_arrow svg {
+    .select_arrow_icon {
       width: 3px;
     }
   }

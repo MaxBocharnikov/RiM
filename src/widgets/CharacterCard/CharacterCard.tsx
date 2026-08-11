@@ -1,9 +1,7 @@
 import { useState } from 'react';
 
 import { classNames, Input, Select, StatusDot } from '../../_shared';
-import CheckIcon from '../../assets/icons/check_icon.svg?react';
-import CloseIcon from '../../assets/icons/close_icon.svg?react';
-import EditIcon from '../../assets/icons/edit_icon.svg?react';
+import { CheckIcon, CloseIcon, EditIcon } from '../../assets';
 
 import styles from './CharacterCard.module.scss';
 
@@ -102,7 +100,9 @@ export const CharacterCard = (props: Props) => {
                   aria-label='Cancel'
                   onClick={cancelEditing}
                 >
-                  <CloseIcon />
+                  <CloseIcon
+                    className={classNames(styles.character_card_action_icon, styles.character_card_action_close_icon)}
+                  />
                 </button>
                 <button
                   type='button'
@@ -110,7 +110,9 @@ export const CharacterCard = (props: Props) => {
                   aria-label='Save'
                   onClick={confirmEditing}
                 >
-                  <CheckIcon />
+                  <CheckIcon
+                    className={classNames(styles.character_card_action_icon, styles.character_card_action_check_icon)}
+                  />
                 </button>
               </>
             ) : (
@@ -120,7 +122,9 @@ export const CharacterCard = (props: Props) => {
                 aria-label='Edit'
                 onClick={startEditing}
               >
-                <EditIcon />
+                <EditIcon
+                  className={classNames(styles.character_card_action_icon, styles.character_card_action_edit_icon)}
+                />
               </button>
             )}
           </div>

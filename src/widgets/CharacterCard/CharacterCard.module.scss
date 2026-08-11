@@ -72,26 +72,26 @@
     color: var(--color-black);
     cursor: pointer;
 
-    svg {
-      display: block;
-      height: auto;
-    }
-
     &_cancel {
       padding: 7px;
     }
+  }
 
-    &_close svg {
-      width: 10px;
-    }
+  &_action_icon {
+    display: block;
+    height: auto;
+  }
 
-    &_check svg {
-      width: 24px;
-    }
+  &_action_close_icon {
+    width: 10px;
+  }
 
-    &_edit svg {
-      width: 17px;
-    }
+  &_action_check_icon {
+    width: 24px;
+  }
+
+  &_action_edit_icon {
+    width: 17px;
   }
 
   &_field {

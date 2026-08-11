@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 
 import { Input, Loader, Select, Show, StatusDot } from '../../_shared';
-import LoupeIcon from '../../assets/icons/loupe.svg?react';
+import { LoupeIcon } from '../../assets';
 import { CharacterCard, type ICharacter } from '../../widgets';
 
 import styles from './CharactersList.module.scss';
@@ -96,7 +96,7 @@ export const CharactersList = () => {
           <Input
             variant='outline'
             label='Filter by name...'
-            leftIcon={<LoupeIcon />}
+            leftIcon={<LoupeIcon className={styles.search_icon} />}
             value={filterName}
             onChange={setFilterName}
             onClear={() => setFilterName('')}

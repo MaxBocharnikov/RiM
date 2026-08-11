@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import CloseIcon from '../../../assets/icons/close_icon.svg?react';
+import { CloseIcon } from '../../../assets';
 import { classNames } from '../../lib';
 
 import styles from './Input.module.scss';
@@ -76,7 +76,7 @@ export const Input = (props: Props) => {
           onClick={handleClear}
           disabled={disabled}
         >
-          <CloseIcon />
+          <CloseIcon className={styles.input_clear_icon} />
         </button>
       )}
     </div>

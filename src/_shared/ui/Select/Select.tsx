@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import ArrowDownIcon from '../../../assets/icons/arrow_down_icon.svg?react';
-import CloseIcon from '../../../assets/icons/close_icon.svg?react';
+import { ArrowDownIcon, CloseIcon } from '../../../assets';
 import { classNames } from '../../lib';
 
 import styles from './Select.module.scss';
@@ -123,15 +122,10 @@ export const Select = <T,>(props: Props<T>) => {
             aria-label='Clear selection'
             onClick={handleClear}
           >
-            <CloseIcon />
+            <CloseIcon className={styles.select_clear_icon} />
           </span>
         )}
-        <span
-          className={styles.select_arrow}
-          aria-hidden='true'
-        >
-          <ArrowDownIcon />
-        </span>
+        <ArrowDownIcon className={styles.select_arrow_icon} />
       </button>
 
       {isOpen && (
