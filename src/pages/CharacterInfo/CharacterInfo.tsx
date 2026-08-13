@@ -1,18 +1,18 @@
 import { Link } from 'react-router';
 
-import { BackIcon } from '../../components';
+import { BackIcon } from '../../assets';
 
-import './CharacterInfo.css';
+import styles from './CharacterInfo.module.scss';
 
 export const CharacterInfo = () => {
   return (
     <>
       <Link
         to={'/'}
-        className='back_link'
+        className={styles.back_link}
       >
         <BackIcon />
-        <h3 className='back_link_label'>GO BACK</h3>
+        <h3 className={styles.back_link_label}>GO BACK</h3>
       </Link>
     </>
   );

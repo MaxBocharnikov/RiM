@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "lint:style": "stylelint \"src/**/*.scss\"",
+    "lint:style:fix": "stylelint \"src/**/*.scss\" --fix",
     "preview": "vite preview",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
@@ -17,11 +19,16 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{json,css,scss,md}": [
+    "*.scss": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
       "prettier --write"
     ]
   },
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router": "^7.17.0"
@@ -41,6 +48,9 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
+    "sass": "^1.101.6",
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard-scss": "^17.0.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12",

@@ -1,0 +1,47 @@
+@import 'normalize.css';
+
+@font-face {
+  font-family: Karla;
+  src: url('./assets/fonts/Karla-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Karla;
+  src: url('./assets/fonts/Karla-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Karla;
+  src: url('./assets/fonts/Karla-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-main: 'Karla', system-ui, sans-serif;
+  --content-max-size: 1020px;
+  --color-black: #000;
+  --color-gray: #393939;
+  --color-gray-light: #f5f5f5;
+  --color-white: #fff;
+  --color-success: #5c4;
+  --color-danger: #d63d2e;
+  --color-warning: #f5a623;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+}
