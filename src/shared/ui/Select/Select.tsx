@@ -1,14 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 import { ArrowDownIcon, CloseIcon } from '../../../assets';
 import { classNames } from '../../lib';
 
 import styles from './Select.module.scss';
 
-interface ISelectOption<T> {
+export interface ISelectOption<T> {
   label: string;
   value: T;
-  decorationSlot?: React.ReactNode;
 }
 
 type Props<T> = {
@@ -20,6 +19,7 @@ type Props<T> = {
   clearable?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
+  renderDecoration?: (option: ISelectOption<T>) => ReactNode;
 };
 
 export const Select = <T,>(props: Props<T>) => {
@@ -31,7 +31,8 @@ export const Select = <T,>(props: Props<T>) => {
     size = 'medium',
     clearable = false,
     disabled = false,
-    fullWidth = false
+    fullWidth = false,
+    renderDecoration
   } = props;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -104,8 +105,8 @@ export const Select = <T,>(props: Props<T>) => {
         aria-haspopup='listbox'
         aria-expanded={isOpen}
       >
-        {selectedOption?.decorationSlot && (
-          <span className={styles.select_decoration}>{selectedOption.decorationSlot}</span>
+        {selectedOption && renderDecoration && (
+          <span className={styles.select_decoration}>{renderDecoration(selectedOption)}</span>
         )}
 
         {selectedOption ? (
@@ -145,7 +146,7 @@ export const Select = <T,>(props: Props<T>) => {
                 })}
                 onClick={() => handleSelect(option)}
               >
-                {option.decorationSlot && <span className={styles.select_decoration}>{option.decorationSlot}</span>}
+                {renderDecoration && <span className={styles.select_decoration}>{renderDecoration(option)}</span>}
                 <span className={styles.select_option_label}>{option.label}</span>
               </li>
             );

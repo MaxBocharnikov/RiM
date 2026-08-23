@@ -14,17 +14,9 @@ const STATUS_LABELS: Record<TCharacterStatus, string> = {
 };
 
 const STATUS_OPTIONS = [
-  { label: STATUS_LABELS.Alive, value: 'Alive' as const, decorationSlot: <CharacterStatusDot status='Alive' /> },
-  {
-    label: STATUS_LABELS.Dead,
-    value: 'Dead' as const,
-    decorationSlot: <CharacterStatusDot status='Dead' />
-  },
-  {
-    label: STATUS_LABELS.unknown,
-    value: 'unknown' as const,
-    decorationSlot: <CharacterStatusDot status='unknown' />
-  }
+  { label: STATUS_LABELS.Alive, value: 'Alive' as const },
+  { label: STATUS_LABELS.Dead, value: 'Dead' as const },
+  { label: STATUS_LABELS.unknown, value: 'unknown' as const }
 ];
 
 type Props = {
@@ -165,6 +157,7 @@ export const CharacterCard = (props: Props) => {
                 value={draft.status}
                 onChange={(value) => value && updateField('status', value)}
                 options={STATUS_OPTIONS}
+                renderDecoration={(option) => <CharacterStatusDot status={option.value} />}
               />
             </div>
           ) : (

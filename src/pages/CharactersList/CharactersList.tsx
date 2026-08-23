@@ -26,9 +26,9 @@ const SPECIES_OPTIONS = [
 ];
 
 const STATUS_OPTIONS = [
-  { label: 'Alive', value: 'Alive' as const, decorationSlot: <CharacterStatusDot status='Alive' /> },
-  { label: 'Dead', value: 'Dead' as const, decorationSlot: <CharacterStatusDot status='Dead' /> },
-  { label: 'Unknown', value: 'unknown' as const, decorationSlot: <CharacterStatusDot status='unknown' /> }
+  { label: 'Alive', value: 'Alive' as const },
+  { label: 'Dead', value: 'Dead' as const },
+  { label: 'Unknown', value: 'unknown' as const }
 ];
 
 export const CharactersList = () => {
@@ -73,6 +73,7 @@ export const CharactersList = () => {
             value={status}
             onChange={setStatus}
             options={STATUS_OPTIONS}
+            renderDecoration={(option) => <CharacterStatusDot status={option.value} />}
           />
         </div>
       </section>
