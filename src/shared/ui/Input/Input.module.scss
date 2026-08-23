@@ -1,7 +1,6 @@
 .input {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   color: var(--color-gray);
   background: var(--color-white);
   cursor: text;
@@ -13,6 +12,7 @@
 
   &_auto_width {
     max-width: 100%;
+    width: auto;
 
     .input_field {
       flex: 0 1 auto;
@@ -30,6 +30,7 @@
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
+    margin-right: 8px;
   }
 
   &_field {
@@ -57,7 +58,9 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    width: 13px;
     padding: 2px;
+    margin-left: 5px;
     border: none;
     background: transparent;
     color: var(--color-black);
@@ -87,10 +90,11 @@
   &_outline {
     border: 1px solid var(--color-gray);
     border-radius: 8px;
-    padding: 18px 16px;
+    padding: 18px 12px 18px 16px;
     height: 56px;
     font-weight: 400;
     font-size: 16px;
+    width: 240px;
   }
 
   &_underline {

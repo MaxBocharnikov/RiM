@@ -116,15 +116,14 @@ export const Select = <T,>(props: Props<T>) => {
         )}
 
         {showClear && (
-          <span
+          <button
+            type='button'
             className={styles.select_clear}
-            role='button'
-            tabIndex={-1}
             aria-label='Clear selection'
             onClick={handleClear}
           >
             <CloseIcon className={styles.select_clear_icon} />
-          </span>
+          </button>
         )}
         <ArrowDownIcon className={styles.select_arrow_icon} />
       </button>

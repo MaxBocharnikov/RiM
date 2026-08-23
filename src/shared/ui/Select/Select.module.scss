@@ -56,23 +56,27 @@
   }
 
   &_clear {
-    padding: 2px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    color: var(--color-gray);
+    width: 13px;
+    margin-left: 5px;
+    padding: 2px;
+    border: none;
+    background: transparent;
+    color: var(--color-black);
     cursor: pointer;
     border-radius: 50%;
 
-    &:hover {
-      color: var(--color-black);
+    &:disabled {
+      cursor: not-allowed;
     }
   }
 
   &_clear_icon {
     display: block;
-    width: 8px;
+    width: 12px;
     height: auto;
   }
 
