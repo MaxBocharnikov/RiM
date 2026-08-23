@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
 import { CheckIcon, CloseIcon, EditIcon } from '../../assets';
+import { CharacterStatusDot, type ICharacter, type TCharacterStatus } from '../../entities';
 import { classNames, Input, Select } from '../../shared';
-import { CharacterStatusDot } from './CharacterStatusDot';
-import type { ICharacter, TCharacterStatus } from './types';
 
 import styles from './CharacterCard.module.scss';
 

@@ -1,7 +1,6 @@
 import { LoupeIcon } from '../../assets';
+import { CharacterStatusDot, type TCharacterStatus, type TGender } from '../../entities';
 import { Input, Select, type ISelectOption } from '../../shared';
-import { CharacterStatusDot } from '../CharacterCard';
-import type { TCharacterStatus, TGender } from '../CharacterCard';
 import type { ICharacterFilters } from './types';
 
 import styles from './CharacterFilters.module.scss';

@@ -1,4 +1,4 @@
-import type { TCharacterStatus, TGender } from '../CharacterCard';
+import type { TCharacterStatus, TGender } from '../../entities';
 
 export interface ICharacterFilters {
   name: string;
