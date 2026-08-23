@@ -15,6 +15,7 @@ type Props = {
   disabled?: boolean;
   fullWidth?: boolean;
   autoWidth?: boolean;
+  className?: string;
 };
 
 export const Input = (props: Props) => {
@@ -27,7 +28,8 @@ export const Input = (props: Props) => {
     leftIcon,
     disabled = false,
     fullWidth = false,
-    autoWidth = false
+    autoWidth = false,
+    className
   } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -50,11 +52,16 @@ export const Input = (props: Props) => {
 
   return (
     <div
-      className={classNames(styles.input, styles[`input_${variant}`], {
-        [styles.input_full_width]: fullWidth,
-        [styles.input_auto_width]: autoWidth,
-        [styles.input_disabled]: disabled
-      })}
+      className={classNames(
+        styles.input,
+        styles[`input_${variant}`],
+        {
+          [styles.input_full_width]: fullWidth,
+          [styles.input_auto_width]: autoWidth,
+          [styles.input_disabled]: disabled
+        },
+        className
+      )}
       onClick={handleContainerClick}
     >
       {leftIcon && <span className={styles.input_left_icon}>{leftIcon}</span>}

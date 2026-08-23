@@ -17,6 +17,8 @@ const MOCK_CHARACTER: ICharacter = {
   status: 'Alive'
 };
 
+const MOCK_CHARACTERS: ICharacter[] = Array.from({ length: 4 }, () => ({ ...MOCK_CHARACTER }));
+
 const initialFilters: ICharacterFilters = {
   name: '',
   species: null,
@@ -26,7 +28,12 @@ const initialFilters: ICharacterFilters = {
 
 export const CharactersList = () => {
   const [filters, setFilters] = useState<ICharacterFilters>(initialFilters);
-  const [character, setCharacter] = useState<ICharacter>(MOCK_CHARACTER);
+  const [characters, setCharacters] = useState<ICharacter[]>(MOCK_CHARACTERS);
+
+  //Temporary handler for saving character updates, while working with MOCKUPS
+  const handleSave = (index: number, update: ICharacter) => {
+    setCharacters((prev) => prev.map((item, i) => (i === index ? update : item)));
+  };
 
   return (
     <>
@@ -49,10 +56,15 @@ export const CharactersList = () => {
 
       <section className={styles.card_showcase}>
         <h4 className={styles.card_showcase_title}>Карточка персонажа</h4>
-        <CharacterCard
-          character={character}
-          onSave={setCharacter}
-        />
+        <div className={styles.card_grid}>
+          {characters.map((character, index) => (
+            <CharacterCard
+              key={index}
+              character={character}
+              onSave={(next) => handleSave(index, next)}
+            />
+          ))}
+        </div>
       </section>
 
       <div className={styles.loader_wrapper}>

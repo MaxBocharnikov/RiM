@@ -129,7 +129,7 @@ export const CharacterCard = (props: Props) => {
           <span className={styles.character_card_value}>{character.species}</span>
         </div>
 
-        <div className={styles.character_card_field}>
+        <div className={classNames(styles.character_card_field, styles.character_card_field_location)}>
           <span className={styles.character_card_label}>Location</span>
           {isEditing ? (
             <div className={styles.character_card_control}>
@@ -140,6 +140,7 @@ export const CharacterCard = (props: Props) => {
                 autoWidth
                 onClear={() => updateField('location', '')}
                 onChange={(value) => updateField('location', value)}
+                className={styles.character_card_location_input}
               />
             </div>
           ) : (
@@ -147,7 +148,11 @@ export const CharacterCard = (props: Props) => {
           )}
         </div>
 
-        <div className={styles.character_card_field}>
+        <div
+          className={classNames(styles.character_card_field, {
+            [styles.character_card_field_status_editing]: isEditing
+          })}
+        >
           <span className={styles.character_card_label}>Status</span>
           {isEditing ? (
             <div className={styles.character_card_control}>
