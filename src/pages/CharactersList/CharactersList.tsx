@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import { Link } from 'react-router';
 
-import { type ICharacter } from '../../entities';
-import { Loader } from '../../shared';
-import { CharacterCard, CharacterFilters, type ICharacterFilters } from '../../widgets';
+import { type ICharacter } from '@/entities';
+import { Loader } from '@/shared';
+import { CharacterCard, CharacterFilters, type ICharacterFilters } from '@/widgets';
 
 import styles from './CharactersList.module.scss';
 

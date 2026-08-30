@@ -1,4 +1,5 @@
-import portalImg from '../../../assets/images/loading_image.png';
+import portalImg from '@/assets/images/loading_image.png';
+
 import { classNames } from '../../lib';
 
 import styles from './Loader.module.scss';
