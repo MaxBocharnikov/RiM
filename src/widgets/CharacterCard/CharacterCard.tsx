@@ -1,31 +1,10 @@
 import { useState } from 'react';
 
 import { CheckIcon, CloseIcon, EditIcon } from '../../assets';
+import { CharacterStatusDot, STATUS_LABELS, STATUS_OPTIONS, type ICharacter } from '../../entities';
 import { classNames, Input, Select } from '../../shared';
-import { CharacterStatusDot } from './CharacterStatusDot';
-import type { ICharacter, TCharacterStatus } from './types';
 
 import styles from './CharacterCard.module.scss';
-
-const STATUS_LABELS: Record<TCharacterStatus, string> = {
-  Alive: 'Alive',
-  Dead: 'Dead',
-  unknown: 'Unknown'
-};
-
-const STATUS_OPTIONS = [
-  { label: STATUS_LABELS.Alive, value: 'Alive' as const, decorationSlot: <CharacterStatusDot status='Alive' /> },
-  {
-    label: STATUS_LABELS.Dead,
-    value: 'Dead' as const,
-    decorationSlot: <CharacterStatusDot status='Dead' />
-  },
-  {
-    label: STATUS_LABELS.unknown,
-    value: 'unknown' as const,
-    decorationSlot: <CharacterStatusDot status='unknown' />
-  }
-];
 
 type Props = {
   character: ICharacter;
@@ -138,7 +117,7 @@ export const CharacterCard = (props: Props) => {
           <span className={styles.character_card_value}>{character.species}</span>
         </div>
 
-        <div className={styles.character_card_field}>
+        <div className={classNames(styles.character_card_field, styles.character_card_field_location)}>
           <span className={styles.character_card_label}>Location</span>
           {isEditing ? (
             <div className={styles.character_card_control}>
@@ -149,6 +128,7 @@ export const CharacterCard = (props: Props) => {
                 autoWidth
                 onClear={() => updateField('location', '')}
                 onChange={(value) => updateField('location', value)}
+                className={styles.character_card_location_input}
               />
             </div>
           ) : (
@@ -156,7 +136,11 @@ export const CharacterCard = (props: Props) => {
           )}
         </div>
 
-        <div className={styles.character_card_field}>
+        <div
+          className={classNames(styles.character_card_field, {
+            [styles.character_card_field_status_editing]: isEditing
+          })}
+        >
           <span className={styles.character_card_label}>Status</span>
           {isEditing ? (
             <div className={styles.character_card_control}>
@@ -165,6 +149,7 @@ export const CharacterCard = (props: Props) => {
                 value={draft.status}
                 onChange={(value) => value && updateField('status', value)}
                 options={STATUS_OPTIONS}
+                renderDecoration={(option) => <CharacterStatusDot status={option.value} />}
               />
             </div>
           ) : (

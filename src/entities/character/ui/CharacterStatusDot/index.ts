@@ -1,0 +1,1 @@
+export { CharacterStatusDot } from './CharacterStatusDot';

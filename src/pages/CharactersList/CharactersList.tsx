@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import { Link } from 'react-router';
 
-import { LoupeIcon } from '../../assets';
-import { Input, Loader, Select } from '../../shared';
-import { CharacterCard, CharacterStatusDot, type ICharacter, type TCharacterStatus } from '../../widgets';
+import { type ICharacter } from '../../entities';
+import { Loader } from '../../shared';
+import { CharacterCard, CharacterFilters, type ICharacterFilters } from '../../widgets';
 
 import styles from './CharactersList.module.scss';
 
@@ -17,28 +17,23 @@ const MOCK_CHARACTER: ICharacter = {
   status: 'Alive'
 };
 
-const SPECIES_OPTIONS = [
-  { label: 'Human', value: 'human' },
-  { label: 'Alien', value: 'alien' },
-  { label: 'Humanoid', value: 'humanoid' },
-  { label: 'Animal', value: 'animal' },
-  { label: 'Robot', value: 'robot' }
-];
+const MOCK_CHARACTERS: ICharacter[] = Array.from({ length: 4 }, () => ({ ...MOCK_CHARACTER }));
 
-const STATUS_OPTIONS = [
-  { label: 'Alive', value: 'Alive' as const, decorationSlot: <CharacterStatusDot status='Alive' /> },
-  { label: 'Dead', value: 'Dead' as const, decorationSlot: <CharacterStatusDot status='Dead' /> },
-  { label: 'Unknown', value: 'unknown' as const, decorationSlot: <CharacterStatusDot status='unknown' /> }
-];
+const initialFilters: ICharacterFilters = {
+  name: '',
+  species: null,
+  gender: null,
+  status: null
+};
 
 export const CharactersList = () => {
-  const [species, setSpecies] = useState<string | null>(null);
-  const [status, setStatus] = useState<TCharacterStatus | null>('Alive');
+  const [filters, setFilters] = useState<ICharacterFilters>(initialFilters);
+  const [characters, setCharacters] = useState<ICharacter[]>(MOCK_CHARACTERS);
 
-  const [formName, setFormName] = useState('Rick Sanchez');
-  const [filterName, setFilterName] = useState('');
-
-  const [character, setCharacter] = useState<ICharacter>(MOCK_CHARACTER);
+  // Temporary handler for saving character updates, while working with MOCKUPS
+  const handleSave = (index: number, update: ICharacter) => {
+    setCharacters((prev) => prev.map((item, i) => (i === index ? update : item)));
+  };
 
   return (
     <>
@@ -52,62 +47,24 @@ export const CharactersList = () => {
         <h3>Open Details Page</h3>
       </Link>
 
-      <section className={styles.select_showcase}>
-        <div className={styles.select_showcase_column}>
-          <h4 className={styles.select_showcase_title}>Большой вариант</h4>
-          <Select
-            size='medium'
-            placeholder='Species'
-            value={species}
-            onChange={setSpecies}
-            options={SPECIES_OPTIONS}
-            clearable
-          />
-        </div>
-
-        <div className={styles.select_showcase_column}>
-          <h4 className={styles.select_showcase_title}>Малый вариант</h4>
-          <Select
-            size='small'
-            clearable
-            value={status}
-            onChange={setStatus}
-            options={STATUS_OPTIONS}
-          />
-        </div>
-      </section>
-
-      <section className={styles.input_showcase}>
-        <div className={styles.input_showcase_column}>
-          <h4 className={styles.input_showcase_title}>Underline вариант</h4>
-          <Input
-            variant='underline'
-            label='Name'
-            value={formName}
-            onChange={setFormName}
-            onClear={() => setFormName('')}
-          />
-        </div>
-
-        <div className={styles.input_showcase_column}>
-          <h4 className={styles.input_showcase_title}>Outline вариант</h4>
-          <Input
-            variant='outline'
-            label='Filter by name...'
-            leftIcon={<LoupeIcon className={styles.search_icon} />}
-            value={filterName}
-            onChange={setFilterName}
-            onClear={() => setFilterName('')}
-          />
-        </div>
+      <section className={styles.filters_section}>
+        <CharacterFilters
+          value={filters}
+          onChange={setFilters}
+        />
       </section>
 
       <section className={styles.card_showcase}>
         <h4 className={styles.card_showcase_title}>Карточка персонажа</h4>
-        <CharacterCard
-          character={character}
-          onSave={setCharacter}
-        />
+        <div className={styles.card_grid}>
+          {characters.map((character, index) => (
+            <CharacterCard
+              key={index}
+              character={character}
+              onSave={(next) => handleSave(index, next)}
+            />
+          ))}
+        </div>
       </section>
 
       <div className={styles.loader_wrapper}>
