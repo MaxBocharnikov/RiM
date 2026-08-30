@@ -2,22 +2,11 @@ import { useState } from 'react';
 
 import { Link } from 'react-router';
 
-import { type ICharacter } from '@/entities';
+import { useLoadCharacters } from '@/entities';
 import { Loader } from '@/shared';
 import { CharacterCard, CharacterFilters, type ICharacterFilters } from '@/widgets';
 
-import styles from './CharactersList.module.scss';
-
-const MOCK_CHARACTER: ICharacter = {
-  image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-  name: 'Rick Sanchez',
-  gender: 'Male',
-  species: 'Human',
-  location: 'Earth',
-  status: 'Alive'
-};
-
-const MOCK_CHARACTERS: ICharacter[] = Array.from({ length: 4 }, () => ({ ...MOCK_CHARACTER }));
+import styles from './CharactersListPage.module.scss';
 
 const initialFilters: ICharacterFilters = {
   name: '',
@@ -26,14 +15,18 @@ const initialFilters: ICharacterFilters = {
   status: null
 };
 
-export const CharactersList = () => {
-  const [filters, setFilters] = useState<ICharacterFilters>(initialFilters);
-  const [characters, setCharacters] = useState<ICharacter[]>(MOCK_CHARACTERS);
+export const CharactersListPage = () => {
+  const { characters, isLoading } = useLoadCharacters();
 
-  // Temporary handler for saving character updates, while working with MOCKUPS
-  const handleSave = (index: number, update: ICharacter) => {
-    setCharacters((prev) => prev.map((item, i) => (i === index ? update : item)));
-  };
+  const [filters, setFilters] = useState<ICharacterFilters>(initialFilters);
+
+  if (isLoading) {
+    return (
+      <div className={styles.loader_wrapper}>
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -57,19 +50,16 @@ export const CharactersList = () => {
       <section className={styles.card_showcase}>
         <h4 className={styles.card_showcase_title}>Карточка персонажа</h4>
         <div className={styles.card_grid}>
-          {characters.map((character, index) => (
+          {characters.map((character) => (
             <CharacterCard
-              key={index}
+              key={character.id}
               character={character}
-              onSave={(next) => handleSave(index, next)}
+              // ToDo: персистентность правок карточки — отдельная задача
+              onSave={() => {}}
             />
           ))}
         </div>
       </section>
-
-      <div className={styles.loader_wrapper}>
-        <Loader />
-      </div>
     </>
   );
 };

@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
 
-import { CharacterInfo, CharactersList } from '@/pages';
+import { CharacterInfoPage, CharactersListPage } from '@/pages';
 
 import App from './App.tsx';
 
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      { index: true, element: <CharactersList /> },
-      { path: 'character/:id', element: <CharacterInfo /> }
+      { index: true, element: <CharactersListPage /> },
+      { path: 'character/:id', element: <CharacterInfoPage /> }
     ]
   }
 ]);

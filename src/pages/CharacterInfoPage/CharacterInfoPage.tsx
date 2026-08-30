@@ -2,9 +2,9 @@ import { Link } from 'react-router';
 
 import { BackIcon } from '@/assets';
 
-import styles from './CharacterInfo.module.scss';
+import styles from './CharacterInfoPage.module.scss';
 
-export const CharacterInfo = () => {
+export const CharacterInfoPage = () => {
   return (
     <>
       <Link
