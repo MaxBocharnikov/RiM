@@ -1,33 +1,9 @@
 import { LoupeIcon } from '../../assets';
-import { CharacterStatusDot, type TCharacterStatus, type TGender } from '../../entities';
-import { Input, Select, type ISelectOption } from '../../shared';
+import { CharacterStatusDot, GENDER_OPTIONS, SPECIES_OPTIONS, STATUS_OPTIONS } from '../../entities';
+import { Input, Select } from '../../shared';
 import type { ICharacterFilters } from './types';
 
 import styles from './CharacterFilters.module.scss';
-
-const SPECIES_OPTIONS: ISelectOption<string>[] = [
-  { label: 'Human', value: 'Human' },
-  { label: 'Alien', value: 'Alien' },
-  { label: 'Humanoid', value: 'Humanoid' },
-  { label: 'Animal', value: 'Animal' },
-  { label: 'Robot', value: 'Robot' },
-  { label: 'Cronenberg', value: 'Cronenberg' },
-  { label: 'Disease', value: 'Disease' },
-  { label: 'Unknown', value: 'Unknown' }
-];
-
-const GENDER_OPTIONS: ISelectOption<TGender>[] = [
-  { label: 'Female', value: 'Female' },
-  { label: 'Male', value: 'Male' },
-  { label: 'Genderless', value: 'Genderless' },
-  { label: 'Unknown', value: 'unknown' }
-];
-
-const STATUS_OPTIONS: ISelectOption<TCharacterStatus>[] = [
-  { label: 'Alive', value: 'Alive' },
-  { label: 'Dead', value: 'Dead' },
-  { label: 'Unknown', value: 'unknown' }
-];
 
 type Props = {
   value: ICharacterFilters;

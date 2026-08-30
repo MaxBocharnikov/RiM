@@ -1,2 +1,3 @@
-export type { ICharacter, TCharacterStatus, TGender } from './model/types';
-export { CharacterStatusDot } from './ui/CharacterStatusDot';
+export * from './model/types';
+export * from './model/constants';
+export * from './ui/CharacterStatusDot';

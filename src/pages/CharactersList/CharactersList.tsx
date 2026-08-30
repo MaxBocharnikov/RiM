@@ -30,7 +30,7 @@ export const CharactersList = () => {
   const [filters, setFilters] = useState<ICharacterFilters>(initialFilters);
   const [characters, setCharacters] = useState<ICharacter[]>(MOCK_CHARACTERS);
 
-  //Temporary handler for saving character updates, while working with MOCKUPS
+  // Temporary handler for saving character updates, while working with MOCKUPS
   const handleSave = (index: number, update: ICharacter) => {
     setCharacters((prev) => prev.map((item, i) => (i === index ? update : item)));
   };

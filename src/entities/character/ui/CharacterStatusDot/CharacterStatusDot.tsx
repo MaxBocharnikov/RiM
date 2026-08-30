@@ -1,11 +1,6 @@
-import { Dot, type TDotTone } from '../../../../shared';
+import { Dot } from '../../../../shared';
+import { STATUS_TONE } from '../../model/constants';
 import type { TCharacterStatus } from '../../model/types';
-
-const STATUS_TONE: Record<TCharacterStatus, TDotTone> = {
-  Alive: 'success',
-  Dead: 'danger',
-  unknown: 'warning'
-};
 
 type Props = {
   status: TCharacterStatus;

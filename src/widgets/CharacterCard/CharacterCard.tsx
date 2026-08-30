@@ -1,22 +1,10 @@
 import { useState } from 'react';
 
 import { CheckIcon, CloseIcon, EditIcon } from '../../assets';
-import { CharacterStatusDot, type ICharacter, type TCharacterStatus } from '../../entities';
+import { CharacterStatusDot, STATUS_LABELS, STATUS_OPTIONS, type ICharacter } from '../../entities';
 import { classNames, Input, Select } from '../../shared';
 
 import styles from './CharacterCard.module.scss';
-
-const STATUS_LABELS: Record<TCharacterStatus, string> = {
-  Alive: 'Alive',
-  Dead: 'Dead',
-  unknown: 'Unknown'
-};
-
-const STATUS_OPTIONS = [
-  { label: STATUS_LABELS.Alive, value: 'Alive' as const },
-  { label: STATUS_LABELS.Dead, value: 'Dead' as const },
-  { label: STATUS_LABELS.unknown, value: 'unknown' as const }
-];
 
 type Props = {
   character: ICharacter;
