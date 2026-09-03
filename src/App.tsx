@@ -1,16 +1,18 @@
 import { Outlet } from 'react-router';
 
-import { Container, Footer, Header, Page } from './shared';
+import { Container, Footer, Header, Page, ToastProvider } from '@/shared';
 
 function App() {
   return (
-    <Container>
-      <Header />
-      <Page>
-        <Outlet />
-      </Page>
-      <Footer />
-    </Container>
+    <ToastProvider>
+      <Container>
+        <Header />
+        <Page>
+          <Outlet />
+        </Page>
+        <Footer />
+      </Container>
+    </ToastProvider>
   );
 }
 

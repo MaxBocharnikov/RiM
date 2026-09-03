@@ -1,4 +1,5 @@
-import { Dot } from '../../../../shared';
+import { Dot } from '@/shared';
+
 import { STATUS_TONE } from '../../model/constants';
 import type { TCharacterStatus } from '../../model/types';
 

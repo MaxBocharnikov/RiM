@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 
-import { CloseIcon } from '../../../assets';
+import { CloseIcon } from '@/assets';
+
 import { classNames } from '../../lib';
 
 import styles from './Input.module.scss';
