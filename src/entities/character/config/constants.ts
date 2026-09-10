@@ -1,6 +1,6 @@
 import type { ISelectOption, TDotTone } from '@/shared';
 
-import type { TCharacterStatus, TGender } from './types';
+import type { TCharacterStatus, TGender } from '../model/types';
 
 export const STATUS_LABELS: Record<TCharacterStatus, string> = {
   Alive: 'Alive',

@@ -1,6 +1,6 @@
 import { Dot } from '@/shared';
 
-import { STATUS_TONE } from '../../model/constants';
+import { STATUS_TONE } from '../../config/constants';
 import type { TCharacterStatus } from '../../model/types';
 
 type Props = {

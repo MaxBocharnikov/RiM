@@ -1,1 +1,0 @@
-export { useLoadCharacters } from './useLoadCharacters';

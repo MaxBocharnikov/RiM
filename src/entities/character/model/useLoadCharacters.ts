@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useToast } from '@/shared';
 
 import { characterApi } from '../api';
-import type { ICharacter } from '../model/types';
+import type { ICharacter } from './types';
 
 export const useLoadCharacters = () => {
   const { notifyError } = useToast();

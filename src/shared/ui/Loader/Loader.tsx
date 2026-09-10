@@ -1,4 +1,4 @@
-import portalImg from '@/assets/images/loading_image.png';
+import { portalImg } from '@/assets';
 
 import { classNames } from '../../lib';
 

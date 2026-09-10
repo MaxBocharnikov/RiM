@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import mainLogo from '@/assets/images/main_logo.jpg';
+import { mainLogo } from '@/assets';
 import { useLoadCharacters } from '@/entities';
 import { Loader } from '@/shared';
 import { CharacterCard, CharacterFilters, type ICharacterFilters } from '@/widgets';
@@ -34,12 +34,12 @@ export const CharactersListPage = () => {
         className={styles.main_logo}
         alt='main_logo'
       />
-      <section className={styles.filters_section}>
+      <div className={styles.filters_section}>
         <CharacterFilters
           value={filters}
           onChange={setFilters}
         />
-      </section>
+      </div>
 
       <section className={styles.card_showcase}>
         <div className={styles.card_grid}>
