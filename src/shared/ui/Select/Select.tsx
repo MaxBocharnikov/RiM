@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
-import { ArrowDownIcon, CloseIcon } from '../../../assets';
+import { ArrowDownIcon, CloseIcon } from '@/assets';
+
 import { classNames } from '../../lib';
 
 import styles from './Select.module.scss';

@@ -1,3 +1,8 @@
+.main_logo {
+  width: 600px;
+  margin: auto;
+}
+
 .loader_wrapper {
   display: flex;
   justify-content: center;
@@ -5,21 +10,15 @@
   flex: 1;
 }
 
-.details_link {
-  text-transform: uppercase;
-  color: #000;
-  margin-top: 43px;
-}
-
 .filters_section {
-  margin-top: 40px;
+  margin-top: 16px;
 }
 
 .card_showcase {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 40px;
+  margin-top: 28px;
 
   &_title {
     font-weight: 700;

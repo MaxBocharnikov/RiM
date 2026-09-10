@@ -6,5 +6,6 @@ import EditIcon from './icons/edit_icon.svg?react';
 import Logo from './icons/logo.svg?react';
 import LoupeIcon from './icons/loupe.svg?react';
 import portalImg from './images/loading_image.png';
+import mainLogo from './images/main_logo.jpg';
 
-export { ArrowDownIcon, BackIcon, CheckIcon, CloseIcon, EditIcon, Logo, LoupeIcon, portalImg };
+export { ArrowDownIcon, BackIcon, CheckIcon, CloseIcon, EditIcon, Logo, LoupeIcon, portalImg, mainLogo };
