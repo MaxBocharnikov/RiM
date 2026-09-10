@@ -1,5 +1,12 @@
 import type { TCharacterStatus, TGender } from '../model/types';
 
+export interface ICharacterListParams {
+  name?: string;
+  status?: string;
+  species?: string;
+  gender?: string;
+}
+
 export interface ICharacterListResponse {
   info: {
     count: number;

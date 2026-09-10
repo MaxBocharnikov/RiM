@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { mainLogo } from '@/assets';
 import { CharacterCard, useLoadCharacters } from '@/entities';
-import { CharacterFilters, type ICharacterFilters } from '@/features';
-import { Loader } from '@/shared';
+import { CharacterFilters, mapFiltersToParams, type ICharacterFilters } from '@/features';
+import { Loader, useDebounce } from '@/shared';
 
 import styles from './CharactersListPage.module.scss';
 
@@ -15,9 +15,12 @@ const initialFilters: ICharacterFilters = {
 };
 
 export const CharactersListPage = () => {
-  const { characters, isLoading } = useLoadCharacters();
-
   const [filters, setFilters] = useState<ICharacterFilters>(initialFilters);
+
+  const debouncedName = useDebounce(filters.name);
+  const params = mapFiltersToParams({ ...filters, name: debouncedName });
+
+  const { characters, isLoading } = useLoadCharacters(params);
 
   if (isLoading) {
     return (
