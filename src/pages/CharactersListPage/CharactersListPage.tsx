@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import { mainLogo } from '@/assets';
-import { useLoadCharacters } from '@/entities';
+import { CharacterCard, useLoadCharacters } from '@/entities';
+import { CharacterFilters, type ICharacterFilters } from '@/features';
 import { Loader } from '@/shared';
-import { CharacterCard, CharacterFilters, type ICharacterFilters } from '@/widgets';
 
 import styles from './CharactersListPage.module.scss';
 

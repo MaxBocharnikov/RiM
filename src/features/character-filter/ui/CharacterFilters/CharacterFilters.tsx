@@ -2,7 +2,7 @@ import { LoupeIcon } from '@/assets';
 import { CharacterStatusDot, GENDER_OPTIONS, SPECIES_OPTIONS, STATUS_OPTIONS } from '@/entities';
 import { Input, Select } from '@/shared';
 
-import type { ICharacterFilters } from './types';
+import type { ICharacterFilters } from '../../model/types';
 
 import styles from './CharacterFilters.module.scss';
 
