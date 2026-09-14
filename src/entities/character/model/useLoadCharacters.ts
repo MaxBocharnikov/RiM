@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useToast } from '@/shared';
+import axios from 'axios';
 
 import { characterApi } from '../api';
 import type { ICharacterListParams } from '../api';
@@ -14,19 +15,28 @@ export const useLoadCharacters = (params?: ICharacterListParams) => {
   const paramsKey = JSON.stringify(params ?? {});
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const loadCharacters = async () => {
       try {
         setIsLoading(true);
-        const data = await characterApi.getCharacters(params);
+        const data = await characterApi.getCharacters(params, controller.signal);
         setCharacters(data);
-      } catch {
+        setIsLoading(false);
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          return;
+        }
         notifyError('Не удалось загрузить персонажей');
-      } finally {
         setIsLoading(false);
       }
     };
 
     loadCharacters();
+
+    return () => {
+      controller.abort();
+    };
   }, [paramsKey, notifyError]);
 
   return { characters, isLoading };
