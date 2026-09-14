@@ -5,6 +5,7 @@ import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
 
 import { CharacterInfoPage, CharactersListPage } from '@/pages';
+import { ErrorBoundary } from '@/shared';
 
 import App from './App.tsx';
 
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorBoundary />,
     children: [
       { index: true, element: <CharactersListPage /> },
       { path: 'character/:id', element: <CharacterInfoPage /> }
