@@ -1,2 +1,1 @@
-export { Select } from './Select';
-export type { ISelectOption } from './Select';
+export { Select, type ISelectOption } from './Select';
