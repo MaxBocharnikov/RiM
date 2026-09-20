@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { CharacterCard, useLoadCharacters } from '@/entities';
 import { CharacterFilters, mapFiltersToParams, type ICharacterFilters } from '@/features';
-import { Loader, useDebounce } from '@/shared';
+import { InfinityScroll, Loader, useDebounce } from '@/shared';
 
 import styles from './CharactersList.module.scss';
 
@@ -19,7 +19,7 @@ export const CharactersList = () => {
   const debouncedName = useDebounce(filters.name);
   const params = mapFiltersToParams({ ...filters, name: debouncedName });
 
-  const { characters, isLoading } = useLoadCharacters(params);
+  const { characters, isLoading, isLoadingMore, hasNext, loadMore } = useLoadCharacters(params);
 
   return (
     <div className={styles.container}>
@@ -36,15 +36,21 @@ export const CharactersList = () => {
             <Loader />
           </div>
         ) : (
-          <div className={styles.card_grid}>
-            {characters.map((character) => (
-              <CharacterCard
-                key={character.id}
-                character={character}
-                onSave={() => {}}
-              />
-            ))}
-          </div>
+          <InfinityScroll
+            onReachEnd={loadMore}
+            hasNext={hasNext}
+            isLoadingMore={isLoadingMore}
+          >
+            <div className={styles.card_grid}>
+              {characters.map((character) => (
+                <CharacterCard
+                  key={character.id}
+                  character={character}
+                  onSave={() => {}}
+                />
+              ))}
+            </div>
+          </InfinityScroll>
         )}
       </section>
     </div>
