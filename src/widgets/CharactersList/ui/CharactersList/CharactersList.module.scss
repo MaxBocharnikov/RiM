@@ -3,7 +3,11 @@
 }
 
 .filters_section {
-  margin-top: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 16px 0;
+  background: var(--color-white);
 }
 
 .card_showcase {

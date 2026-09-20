@@ -1,10 +1,16 @@
-import type { TCharacterStatus, TGender } from '../model/types';
+import type { ICharacter, TCharacterStatus, TGender } from '../model/types';
 
 export interface ICharacterListParams {
   name?: string;
   status?: string;
   species?: string;
   gender?: string;
+  page?: number;
+}
+
+export interface ICharactersPage {
+  characters: ICharacter[];
+  hasNext: boolean;
 }
 
 export interface ICharacterListResponse {
