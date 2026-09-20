@@ -1,8 +1,8 @@
 import styles from './ErrorBoundary.module.scss';
 
 export const ErrorBoundary = () => {
-  const handleReload = () => {
-    window.location.reload();
+  const handleGoHome = () => {
+    window.location.replace('/');
   };
 
   return (
@@ -11,9 +11,9 @@ export const ErrorBoundary = () => {
       <button
         className={styles.error_button}
         type='button'
-        onClick={handleReload}
+        onClick={handleGoHome}
       >
-        Перезагрузить
+        На главную
       </button>
     </div>
   );
